@@ -15,6 +15,7 @@ class FilmController extends Controller
         $films = Film::where('user_id', auth()->id())->get();
 
         return view('dashboard', [
+            'title' => 'All Film',
             'films' => $films
         ]);
     }
@@ -24,7 +25,7 @@ class FilmController extends Controller
      */
     public function create()
     {
-        return view('formFilm');
+        return view('formFilm', ['title' => 'Add New List Film']);
     }
 
     /**
@@ -61,6 +62,7 @@ class FilmController extends Controller
     {
         $film = Film::findOrFail($id);
         return view('content.show', [
+            'title' => 'List of Film',
             'film' => $film
         ]);
     }
@@ -72,7 +74,7 @@ class FilmController extends Controller
     {
         $film = Film::findOrFail($id);
 
-        return view('formFilm')->with('film', $film);
+        return view('formFilm')->with('film', $film)->with('title', 'Edit List of Film');
     }
 
     /**

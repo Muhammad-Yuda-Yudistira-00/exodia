@@ -2,7 +2,7 @@
     // dd($films);
 @endphp
 
-<x-layouts.admin title="All List">
+<x-layouts.admin title="{{ $title }}">
     <div class="mb-6">
         @if(session('success'))
             <x-general.alert></x-general>
